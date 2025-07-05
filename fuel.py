@@ -10,7 +10,7 @@ def main():
             print("Enter the correct value")
         except ZeroDivisionError:
             continue
-        if x > y or y==0:
+        if x > y :
             continue
         else:
             break
