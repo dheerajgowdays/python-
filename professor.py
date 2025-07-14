@@ -13,13 +13,12 @@ import random
 def main():
     level=get_level()
     generate_integer(level)
-    score
 
 def get_level():
     while True:
         try:
             n= int(input("Level: "))
-            if 0<n>4:
+            if n>0 and n<4:
                 return n
                 break
             else:
@@ -27,21 +26,56 @@ def get_level():
         except ValueError:
             continue
 def generate_integer(level):
+    k=0
     i=1
     while i<=10:
-        while True:
-            if level == 1:
-                x=random.randrange(1,9)
-                y=random.randrange(1,9)
-                z=x+y
+        if level == 1:
+            x=random.randrange(1,9)
+            y=random.randrange(1,9)
+            z=x+y
+            
+            try:
+                sum=int(input(f"{x}+{y}="))
+                if sum == z:
+                    k+=1
+                    i+=1
+                    continue
+                else:
+                    i+=1
+                    raise ValueError("EEE")
+            except ValueError as e:
+                print(e)
+                continue
+        elif level==2:
+            x=random.randrange(10,99)
+            y=random.randrange(10,99)
+            z=x+y
+            while i<4:
                 try:
                     sum=int(input(f"{x}+{y}="))
                     if sum == z:
+                        k=+1
                         continue
                     else:
                         raise ValueError("EEE")
                 except ValueError as e:
                     print(e)
                     continue
+        else:
+            x=random.randrange(100,999)
+            y=random.randrange(100,999)
+            z=x+y
+            try:
+                sum=int(input(f"{x}+{y}="))
+                if sum == z:
+                    k+=1
+                    i+=1
+                    continue
+                else:
+                    raise ValueError("EEE")
+            except ValueError as e:
+                print(e)
+                continue
+    print(f"Score:{k}")
 if __name__ == "__main__":
     main()
