@@ -28,54 +28,77 @@ def get_level():
 def generate_integer(level):
     k=0
     i=1
+    d=0
     while i<=10:
         if level == 1:
             x=random.randrange(1,9)
             y=random.randrange(1,9)
             z=x+y
-            
-            try:
-                sum=int(input(f"{x}+{y}="))
-                if sum == z:
-                    k+=1
-                    i+=1
+            while d<=3:
+                try:
+                    sum=int(input(f"{x}+{y}="))
+                    if sum == z:
+                        k+=1
+                        i+=1
+                        break
+                    else:
+                        d+=1
+                        raise ValueError("EEE")
+                except ValueError as e:
+                    print(e)
+                    if d == 3:
+                        print(f"{x}+{y}={z}")
+                        i+=1
+                        d=0
+                        break
                     continue
-                else:
-                    i+=1
-                    raise ValueError("EEE")
-            except ValueError as e:
-                print(e)
-                continue
+            continue
         elif level==2:
             x=random.randrange(10,99)
             y=random.randrange(10,99)
             z=x+y
-            while i<4:
+            while d<=3:
                 try:
                     sum=int(input(f"{x}+{y}="))
                     if sum == z:
-                        k=+1
-                        continue
+                        k+=1
+                        i+=1
+                        break
                     else:
+                        d+=1
                         raise ValueError("EEE")
                 except ValueError as e:
                     print(e)
+                    if d == 3:
+                        print(f"{x}+{y}={z}")
+                        i+=1
+                        d=0
+                        break
                     continue
+            continue
         else:
             x=random.randrange(100,999)
             y=random.randrange(100,999)
             z=x+y
-            try:
-                sum=int(input(f"{x}+{y}="))
-                if sum == z:
-                    k+=1
-                    i+=1
+            while d<=3:
+                try:
+                    sum=int(input(f"{x}+{y}="))
+                    if sum == z:
+                        k+=1
+                        i+=1
+                        break
+                    else:
+                        d+=1
+                        raise ValueError("EEE")
+                except ValueError as e:
+                    print(e)
+                    if d == 3:
+                        print(f"{x}+{y}={z}")
+                        i+=1
+                        d=0
+                        break
                     continue
-                else:
-                    raise ValueError("EEE")
-            except ValueError as e:
-                print(e)
-                continue
+            continue
     print(f"Score:{k}")
 if __name__ == "__main__":
     main()
