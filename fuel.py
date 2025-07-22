@@ -14,7 +14,7 @@ def main():
             continue
         else:
             break
-    percentage=round(x/y)*100
+    percentage=(round(x/y)*100)
     if percentage <= 1:
         print("E")
     elif percentage >= 99:
