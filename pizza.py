@@ -1,4 +1,5 @@
 import sys
+import csv
 from tabulate import tabulate
 
 def main():
@@ -10,16 +11,17 @@ def main():
         elif len(files)<1:
             print("Too few command-line arguments")
             sys.exit(1)
-        with open(files[0],"r") as file:
-            filename=files[0]
-            if not filename.endswith(".csv"):
+        filename=files[0]
+        if not filename.endswith(".csv"):
                 print('Not a CSV file')
                 sys.exit(1)
-            for line in file:
-                g
-            
+        with open(filename,"r") as file:
+            reader = csv.DictReader(file)
+            table=list(reader)
+            print(tabulate(table, headers="keys", tablefmt="grid"))
+
     except FileNotFoundError:
         print("File does not exist")
         sys.exit(1)
-    
+
 main()
