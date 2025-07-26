@@ -2,15 +2,12 @@ import sys
 import csv
 
 def main():
-    # Check for correct command-line argument count
     if len(sys.argv) != 3:
         print("Usage: python script.py input.csv output.csv")
         sys.exit(1)
 
     input_filename = sys.argv[1]
     output_filename = sys.argv[2]
-
-    # Read input, process, write output
     try:
         with open(input_filename, "r", newline='') as infile:
             reader = csv.DictReader(infile)
