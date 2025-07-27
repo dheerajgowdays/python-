@@ -13,7 +13,7 @@ def main():
             reader = csv.DictReader(infile)
             rows = []
             for row in reader:
-                first, last = row["name"].split(',', 1)
+                first, last = row["name"].split(' ', 1)
                 house = row["house"]
                 rows.append({"first": first, "last": last, "house": house})
 
