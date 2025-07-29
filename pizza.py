@@ -4,14 +4,14 @@ from tabulate import tabulate
 
 def main():
     try:
-        files=sys.argv[1:]
-        if len(files)>1:
+        fil=sys.argv[1:]
+        if len(fil)>1:
             print("Too many command-line arguments")
             sys.exit(1)
-        elif len(files)<1:
+        elif len(fil)<1:
             print("Too few command-line arguments")
             sys.exit(1)
-        filename=files[0]
+        filename=fil[0]
         if not filename.endswith(".csv"):
                 print('Not a CSV file')
                 sys.exit(1)
