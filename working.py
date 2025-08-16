@@ -7,8 +7,6 @@ def main():
 
 
 def convert(s):
-    a,b=s.split("to")
-    if a.endswith("am"):
-        
+    
 if __name__ == "__main__":
     main()
